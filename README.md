@@ -1,6 +1,6 @@
 # Tech interview smart contracts coding problem
 
-This is a coding problem for [Nayms](https://nayms.io) tech interviews. It is designed to take **no more than a few hours**.
+This is a Solidity coding problem for [Nayms](https://nayms.io) tech interviews. It is designed to take **no more than a few hours**.
 
 ## Getting setup
 
