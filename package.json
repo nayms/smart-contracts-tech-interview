@@ -1,0 +1,31 @@
+{
+  "name": "@nayms/dividends-contracts",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Tech interview smart contracts coding problem",
+  "main": "index.js",
+  "scripts": {
+    "devnet": "ganache-cli --gasLimit 8000000 -a 50 -e 1000000 -i 5777 -m 'funny door sample enrich female wedding stereo crane setup shop dwarf dismiss'",
+    "truffle": "babel-node node_modules/.bin/truffle",
+    "clean": "rm -rf ./build",
+    "test": "yarn truffle test --network test",
+    "compile": "rm -rf build && yarn truffle compile --network test",
+    "deploy": "yarn truffle migrate --network test",
+    "lint": "solhint --config ./.solhint.json contracts/**/*.sol"
+  },
+  "author": "Ramesh Nair <ram@hiddentao.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "chai": "^4.3.4",
+    "chai-as-promised": "^7.1.1",
+    "ganache-cli": "^6.12.2",
+    "ganache-core": "^2.13.2",
+    "truffle": "5.1.5",
+    "web3": "^1.5.2"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
