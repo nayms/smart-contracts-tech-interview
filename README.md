@@ -9,17 +9,17 @@ Ensure you have installed:
 * NodeJS 14+
 * Yarn (_install using `npm i -g yarn`_)
 
-One you have cloned the repo locally, install the NPM dependencies using:
+## Instructions
+
+### Part 1: Setup
+
+Clone the repo locally and install the NPM dependencies using:
 
 ```shell
 yarn
 ```
 
-_Note: this project uses [Truffle](https://www.trufflesuite.com/)._
-
-## Instructions
-
-### Part 1
+### Part 2: Complete the task
 
 The contracts consist of a mintable ERC-20 `Token` (which is similar to a _Wrapped ETH_ token). Callers mint tokens by depositing ETH. They can then burn their token balance to get the equivalent amount of deposited ETH back.
 
@@ -31,15 +31,15 @@ For a clearer understanding of how the code is supposed to work please refer to 
 
 **You only need to write code in the `Token.sol` file. The task is complete once all the unit tests pass successfully.**
 
-### Part 2 - BONUS!
+### Part 3: BONUS!
 
 The dividends payment process requires looping through token holders. If the no. of holders is very large (e.g. >1000) it's likely that the `recordDividend()` method will fail (due to out-of-gas error). Come up with another way of paying dividends that does not suffer from this issue.
 
 Outline in writing (or code!) how you would do things differently. Create a `Token2.sol` file with your new code and add new unit tests too if you like!
 
-### Part 3 - Send us your code
+### Part 4: Send us your code
 
-Please create a new **private** Github repository with your work and give us ([@hiddentao](https://github.com/hiddentao)) read-only permissions to it.
+Please publish your code to a new **private** Github repository and give us ([@hiddentao](https://github.com/hiddentao)) read-only permissions to it.
 
 ## Commands
 
