@@ -149,17 +149,20 @@ contract('Token', accounts => {
 
         // do some transfer to update the proportional holdings
         await token.transfer(accounts[2], 25, { from: accounts[1] })
+        await token.mint({ value: 75, from: accounts[1] })
+        await token.burn(accounts[0], { from: accounts[0] })
 
-        await token.balanceOf(accounts[0]).should.eventually.eq('25')
-        await token.balanceOf(accounts[1]).should.eventually.eq('25')
+        await token.balanceOf(accounts[0]).should.eventually.eq('0')
+        await token.balanceOf(accounts[1]).should.eventually.eq('100')
         await token.balanceOf(accounts[2]).should.eventually.eq('50')
+        await token.totalSupply().should.eventually.eq('150')
 
-        await token.recordDividend({ from: accounts[5], value: 80 })
+        await token.recordDividend({ from: accounts[5], value: 90 })
 
         // check that new payouts are in accordance with new holding proportions
-        await token.getWithdrawableDividend(accounts[0]).should.eventually.eq(250 + 20)
-        await token.getWithdrawableDividend(accounts[1]).should.eventually.eq(500 + 20)
-        await token.getWithdrawableDividend(accounts[2]).should.eventually.eq(250 + 40)
+        await token.getWithdrawableDividend(accounts[0]).should.eventually.eq(250 + 0)
+        await token.getWithdrawableDividend(accounts[1]).should.eventually.eq(500 + 60)
+        await token.getWithdrawableDividend(accounts[2]).should.eventually.eq(250 + 30)
       })
 
       it('and allows for withdrawals in-between payouts', async () => {
