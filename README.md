@@ -41,7 +41,7 @@ Outline in writing (or code!) how you would do things differently. Create a `Tok
 
 ### Part 4: Send us your code
 
-Please publish your code to a new **private** Github repository and give us ([@hiddentao](https://github.com/hiddentao), [@melks](https://github.com/melks)) read-only permissions to it.
+Please publish your code to a new **private** Github repository and give us ([@hiddentao](https://github.com/hiddentao), [@melks](https://github.com/melks), [@tgeorgas](https://github.com/tgeorgas)) read-only permissions to it.
 
 ## Commands
 
