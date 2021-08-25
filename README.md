@@ -33,11 +33,11 @@ For a clearer understanding of how the code is supposed to work please refer to 
 
 **You only need to write code in the `Token.sol` file. The task is complete once all the unit tests pass successfully.**
 
-### Part 3: BONUS!
+### Part 3: The interesting part
 
 The dividends payment process requires looping through token holders. If the no. of holders is very large (e.g. >1000) it's likely that the `recordDividend()` method will fail (due to out-of-gas error). Come up with another way of paying dividends that does not suffer from this issue.
 
-Outline in writing (or code!) how you would do things differently. Create a `Token2.sol` file with your new code and add new unit tests too if you like!
+Outline in writing (or code!) how you would do things differently. Create a `Token2.sol` file with your new code and add new unit tests too if you like.
 
 ### Part 4: Send us your code
 
