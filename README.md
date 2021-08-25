@@ -31,7 +31,7 @@ You will thus need to **efficiently** keep track of individual token holder addr
 
 For a clearer understanding of how the code is supposed to work please refer to the tests in the `test` folder.
 
-**You only need to write code in the `Token.sol` file. The task is complete once all the unit tests pass successfully.**
+**You only need to write code in the `Token.sol` file. Please ensure all the unit tests pass successfully.**
 
 ### Part 3: The interesting part
 
