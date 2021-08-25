@@ -31,13 +31,13 @@ You will thus need to **efficiently** keep track of individual token holder addr
 
 For a clearer understanding of how the code is supposed to work please refer to the tests in the `test` folder.
 
-**You only need to write code in the `Token.sol` file. Please ensure all the unit tests pass successfully.**
+**You only need to write code in the `Token.sol` file. Please ensure all the existing unit tests pass successfully.**
 
 ### Part 3: The interesting part
 
 The dividends payment process requires looping through token holders. If the no. of holders is very large (e.g. >1000) it's likely that the `recordDividend()` method will fail (due to out-of-gas error). Come up with another way of paying dividends that does not suffer from this issue.
 
-Outline in writing (or code!) how you would do things differently. Create a `Token2.sol` file with your new code and add new unit tests too if you like.
+Outline in writing (or code!) how you would do things differently. Create a `Token2.sol` file with your new code and add a new `token2.test.js` test file if you like.
 
 ### Part 4: Send us your code
 
