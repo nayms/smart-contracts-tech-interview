@@ -21,6 +21,8 @@ yarn
 
 ### Part 2: Complete the task
 
+**This part must be completed successfully.**
+
 The contracts consist of a mintable ERC-20 `Token` (which is similar to a _Wrapped ETH_ token). Callers mint tokens by depositing ETH. They can then burn their token balance to get the equivalent amount of deposited ETH back.
 
 In addition, token holders can receive dividend payments in ETH in proportion to their token balance relative to the total supply. Dividends are assigned by looping through the list of holders.
@@ -33,7 +35,9 @@ For a clearer understanding of how the code is supposed to work please refer to 
 
 **You only need to write code in the `Token.sol` file. Please ensure all the existing unit tests pass successfully.**
 
-### Part 3: The interesting part
+### Part 3: The interesting part - BONUS!
+
+This is for bonus points.
 
 The dividends payment process requires looping through token holders. If the no. of holders is very large (e.g. >1000) it's likely that the `recordDividend()` method will fail (due to out-of-gas error). Come up with another way of paying dividends that does not suffer from this issue.
 
