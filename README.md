@@ -21,7 +21,7 @@ yarn
 
 ### Part 2: Complete the task
 
-**This part must be completed successfully.**
+This part must be completed successfully.
 
 The contracts consist of a mintable ERC-20 `Token` (which is similar to a _Wrapped ETH_ token). Callers mint tokens by depositing ETH. They can then burn their token balance to get the equivalent amount of deposited ETH back.
 
@@ -33,7 +33,7 @@ You will thus need to **efficiently** keep track of individual token holder addr
 
 For a clearer understanding of how the code is supposed to work please refer to the tests in the `test` folder.
 
-**You only need to write code in the `Token.sol` file. Please ensure all the existing unit tests pass successfully.**
+**You only need to write code in the `Token.sol` file. Please ensure all the unit tests pass successfully to successfully complete this part.**
 
 ### Part 3: The interesting part - BONUS!
 
