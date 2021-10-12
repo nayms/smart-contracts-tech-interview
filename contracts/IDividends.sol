@@ -2,6 +2,22 @@ pragma solidity 0.7.0;
 
 interface IDividends {
   /**
+   * Get the no. of token holders with non-zero balance.
+   *
+   * @return no. of token holders with non-zero balance.
+   */
+  function getNumTokenHolders() external view returns (uint256);
+
+  /**
+   * Get the address at the given index in the list of token holders with a non-zero balance.
+   *
+   * @param index the 1-based index into the list of holders.
+   *
+   * @return the address, or the null adress if the index is out of bounds.
+   */
+  function getTokenHolder(uint256 index) external view returns (address);
+
+  /**
    * Record a new dividend to be paid to all current token holders.
    *
    * Dividend amount equals `msg.value`.

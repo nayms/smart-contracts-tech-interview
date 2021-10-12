@@ -3,6 +3,19 @@ import { getBalance } from './utils'
 
 const Token = artifacts.require("./Token")
 
+const assertHolderList = async (token, ...addresses) => {
+  const n = await token.getNumTokenHolders()
+  const p = []
+  for (let i = 1; i <= n; i += 1) {
+    p.push(token.getTokenHolder(i))
+  }
+  const a = await Promise.all(p)
+  const aSorted = a.map(add => add.toLowerCase()).sort()
+  const inSorted = addresses.map(add => add.toLowerCase()).sort()
+  expect(aSorted.length).to.eql(inSorted.length)
+  expect(aSorted).to.eql(inSorted)
+}
+
 contract('Token', accounts => {
   let token
 
@@ -100,6 +113,8 @@ contract('Token', accounts => {
       })
       
       it('and keeps track of holders when minting and burning', async () => {
+        await assertHolderList(token, accounts[0], accounts[1])
+
         await token.mint({ value: 100, from: accounts[2] })
         await token.burn(accounts[9])
 
@@ -107,11 +122,15 @@ contract('Token', accounts => {
         await token.balanceOf(accounts[1]).should.eventually.eq('50')
         await token.balanceOf(accounts[2]).should.eventually.eq('100')
 
+        await assertHolderList(token, accounts[1], accounts[2])
+
         await token.recordDividend({ from: accounts[5], value: 1500 })
 
         await token.getWithdrawableDividend(accounts[0]).should.eventually.eq(0)
         await token.getWithdrawableDividend(accounts[1]).should.eventually.eq(500)
         await token.getWithdrawableDividend(accounts[2]).should.eventually.eq(1000)
+
+        await assertHolderList(token, accounts[1], accounts[2])
       })
 
       it('and keeps track of holders when transferring', async () => {
@@ -125,6 +144,8 @@ contract('Token', accounts => {
         await token.balanceOf(accounts[1]).should.eventually.eq('0')
         await token.balanceOf(accounts[2]).should.eventually.eq('75')
         await token.balanceOf(accounts[3]).should.eventually.eq('0')
+
+        await assertHolderList(token, accounts[0], accounts[2])
 
         await token.recordDividend({ from: accounts[5], value: 1000 })
 
@@ -157,6 +178,8 @@ contract('Token', accounts => {
         await token.balanceOf(accounts[2]).should.eventually.eq('50')
         await token.totalSupply().should.eventually.eq('150')
 
+        await assertHolderList(token, accounts[1], accounts[2])
+
         await token.recordDividend({ from: accounts[5], value: 90 })
 
         // check that new payouts are in accordance with new holding proportions
@@ -171,6 +194,8 @@ contract('Token', accounts => {
         await token.balanceOf(accounts[0]).should.eventually.eq('25')
         await token.balanceOf(accounts[1]).should.eventually.eq('50')
         await token.balanceOf(accounts[2]).should.eventually.eq('25')
+
+        await assertHolderList(token, accounts[0], accounts[1], accounts[2])
 
         await token.recordDividend({ from: accounts[5], value: 1000 })
 
@@ -203,6 +228,8 @@ contract('Token', accounts => {
         await token.balanceOf(accounts[1]).should.eventually.eq('50')
         await token.balanceOf(accounts[2]).should.eventually.eq('25')
 
+        await assertHolderList(token, accounts[0], accounts[1], accounts[2])
+
         await token.recordDividend({ from: accounts[5], value: 1000 })
 
         await token.getWithdrawableDividend(accounts[0]).should.eventually.eq(250)
@@ -213,6 +240,8 @@ contract('Token', accounts => {
 
         // burn tokens
         await token.burn(accounts[9], { from: accounts[1] })
+
+        await assertHolderList(token, accounts[0], accounts[2])
 
         await token.getWithdrawableDividend(accounts[0]).should.eventually.eq(250)
         await token.getWithdrawableDividend(accounts[1]).should.eventually.eq(500)

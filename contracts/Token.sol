@@ -49,6 +49,14 @@ contract Token is IERC20, IMintableToken, IDividends {
 
   // IDividends
 
+  function getNumTokenHolders() external view override returns (uint256) {
+    revert();
+  }
+
+  function getTokenHolder(uint256 index) external view override returns (address) {
+    revert();
+  }
+
   function recordDividend() external payable override {
     revert();
   }
