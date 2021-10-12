@@ -21,6 +21,8 @@ yarn
 
 ### Part 2: Complete the task
 
+This part must be completed successfully.
+
 The contracts consist of a mintable ERC-20 `Token` (which is similar to a _Wrapped ETH_ token). Callers mint tokens by depositing ETH. They can then burn their token balance to get the equivalent amount of deposited ETH back.
 
 In addition, token holders can receive dividend payments in ETH in proportion to their token balance relative to the total supply. Dividends are assigned by looping through the list of holders.
@@ -31,17 +33,19 @@ You will thus need to **efficiently** keep track of individual token holder addr
 
 For a clearer understanding of how the code is supposed to work please refer to the tests in the `test` folder.
 
-**You only need to write code in the `Token.sol` file. The task is complete once all the unit tests pass successfully.**
+**You only need to write code in the `Token.sol` file. Please ensure all the unit tests pass successfully to successfully complete this part.**
 
-### Part 3: BONUS!
+### Part 3: The interesting part - BONUS!
+
+This is for bonus points.
 
 The dividends payment process requires looping through token holders. If the no. of holders is very large (e.g. >1000) it's likely that the `recordDividend()` method will fail (due to out-of-gas error). Come up with another way of paying dividends that does not suffer from this issue.
 
-Outline in writing (or code!) how you would do things differently. Create a `Token2.sol` file with your new code and add new unit tests too if you like!
+Outline in writing (or code!) how you would do things differently. Create a `Token2.sol` file with your new code and add a new `token2.test.js` test file if you like.
 
 ### Part 4: Send us your code
 
-Please publish your code to a new **private** Github repository and give us ([@hiddentao](https://github.com/hiddentao), [@melks](https://github.com/melks)) read-only permissions to it.
+Please publish your code to a new **private** Github repository and give us ([@hiddentao](https://github.com/hiddentao), [@melks](https://github.com/melks), [@tgeorgas](https://github.com/tgeorgas)) read-only permissions to it.
 
 ## Commands
 
